@@ -1,0 +1,12 @@
+h2{
+  color: red;
+  text-align: center;
+}
+.movies-container{
+  border: 1px solid black;
+  margin: 20px auto;
+  padding: 10px;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
