@@ -1,32 +1,63 @@
-import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage, NgIf],
+  imports: [MoviesListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent {
-  movies?: any[];
+  upcomingMovies: any;
+  inTheatersMovies: any;
 
   constructor(){
     setTimeout(() => {
-      
-      this.movies = [
-        
-      ]
+      this.upcomingMovies = [
+        {
+          title:'Venom',
+          launchDate: new Date().toLocaleDateString(),
+          price: 123.4,
+          poster : 'https://m.media-amazon.com/images/I/813EeINX9RL._AC_UF894,1000_QL80_DpWeblab_.jpg'
+        }
+      ];
 
-    }, 2000);
-  }
+      this.inTheatersMovies = [
+        {
+          title:'Batman the dark knight',
+          launchDate: new Date('2000-06-22'),
+          price: 423.4,
+          poster : 'https://upload.wikimedia.org/wikipedia/pt/d/d1/The_Dark_Knight.jpg'
+        },
+        {
+          title:'Spider Man 1',
+          launchDate: new Date().toLocaleDateString(),
+          price: 1223.4,
+          poster : 'https://upload.wikimedia.org/wikipedia/pt/1/14/Spide-Man_Poster.jpg'
+        }
+      ];
 
-  SumNumbers (numbers: number[]): number{
-    let returnNumber: number = 0;
-    numbers.forEach(element => {
-      returnNumber += element;
-    });
-    return returnNumber;
+    }, 500);
   }
+  
+  
+  // addMovie(){
+  //   //const titleElement = document.getElementById("title") as HTMLInputElement;
+  //   //const launchDateElement = document.getElementById("launchDate") as HTMLInputElement;
+  //   //const priceElement = document.getElementById("price") as HTMLInputElement;
+  //   //const posterElement = document.getElementById("poster") as HTMLInputElement;
+  //   //const tipe = document.getElementById("poster") as HTMLInputElement;
+
+  //   var movie:any ={
+  //         title:'Test',
+  //         launchDate: new Date('22-06-2000').toLocaleDateString(),
+  //         price: .4,
+  //         poster : 'https://upload.wikimedia.org/wikipedia/pt/d/d1/The_Dark_Knight.jpg'
+  //       };
+
+  //   this.movies?.push(movie)
+  // }
+
 }

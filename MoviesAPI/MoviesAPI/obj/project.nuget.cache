@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/YHwkdXxj/M=",
+  "dgSpecHash": "vT1RgT6+O3Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gabri\\source\\repos\\AngularCourse\\angular-movies\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
+  "projectFilePath": "E:\\Repositorio\\AngularCourse\\angular-movies\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

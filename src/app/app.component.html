@@ -1,47 +1,5 @@
-<!-- <h2>Using {{"@for"}}</h2>
+<h2>Upcoming Movies</h2>
+<app-movies-list [movies]="upcomingMovies"></app-movies-list>
 
-@for(movie of movies; track $index){
-<div class="movies-container">
-  <p>This movie is called {{movie.title |uppercase}} and it was released in <br>
-    {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made</p>
-  <br>
-  {{movies[$index].title}}
-
-</div>
-} -->
-
-<h2>Using *ngFor</h2>
-
-<!-- @if(!movies){
-  <div><img src="https://i.pinimg.com/originals/ef/8b/bd/ef8bbd4554dedcc2fd1fd15ab0ebd7a1.gif"></div>
-}@else if (movies?.length === 0) {
-  <div><img src="https://gilgit.app/_next/static/media/no-items-found.acefb40a.gif" width="240" height="250"></div>
-} -->
-
-<div *ngIf="!movies">
-  <div><img src="assets/loadingProcess.gif"></div>
-</div>
-
-<div *ngIf="movies?.length === 0">
-  <div><img src="assets/theresNothingHere.gif" width="240" height="250"></div>
-  <br>
-  <h2>Tem nada de filme aq não pae</h2>
-</div>
-
-<main>
-  <div *ngIf="movies && movies.length > 0">
-    <div class="movies-container" *ngFor="let movie of movies; let $index = index">
-      <p>This movie is called {{movie.title |uppercase}} and it was released in <br>
-        {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made</p>
-      <br>
-      <div>
-        <img [ngSrc]="movie.poster" width="169" height="240" [priority]="$index === 0">
-      </div>
-    </div>
-  </div>
-  <div>
-    <p>The sum of the numbers 1,2,3 is equals: {{SumNumbers([1,2,3])}}</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magni perferendis minima ipsum. Neque quae omnis
-      voluptatum velit unde doloremque, in facere sed laborum et suscipit eos? Qui, cumque optio?</p>
-  </div>
-</main>
+<h2>In Theater Movies</h2>
+<app-movies-list [movies]="inTheatersMovies"></app-movies-list>
