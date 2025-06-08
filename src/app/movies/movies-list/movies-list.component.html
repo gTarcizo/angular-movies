@@ -5,13 +5,13 @@
 } -->
 
 <div *ngIf="!movies">
-  <div><img src="assets/loadingProcess.gif"></div>
+  <div class="text-center"><img src="assets/loadingProcess.gif"></div>
 </div>
 
 <div *ngIf="movies?.length === 0">
-  <div><img src="assets/theresNothingHere.gif" width="240" height="250"></div>
-  <br>
-  <h2>Tem nada de filme aq não pae</h2>
+  <div class="text-center"><img src="assets/theresNothingHere.gif" width="240" height="250"></div>
+    <hr class="m-auto w-50"/>
+    <br/>
 </div>
 <section>
   <!-- <h2>Using {{"@for"}}</h2>
@@ -25,14 +25,33 @@
 
 </div>
 } -->
-  <div *ngIf="movies && movies.length > 0">
-    <div class="movies-container" *ngFor="let movie of movies; let $index = index">
-      <p>This movie is called {{movie.title |uppercase}} and it was released in <br>
-        {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made</p>
-      <br>
+<div *ngIf="movies && movies.length > 0">
+  <br/>
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
+  </div>
+  <br/>
+    <div *ngFor="let movie of movies; let $index = index">
       <div>
-        <img [ngSrc]="movie.poster" width="169" height="240" [priority]="$index === 0">
+        <div class="card m-auto rounded-4 shadow-sm" style="width: 18rem;">
+          @if (movie.poster) {
+            <img [ngSrc]="movie.poster" class="card-img-top m-1 p-3 rounded-5" width="150" height="350" [priority]="$index === 0"/>
+          }@else {
+            <img src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg" class="card-img-top m-1 p-3 rounded-5" width="150" height="350"/>
+          }
+          <div class="card-body">
+            <h5 class="card-title">{{movie.title |uppercase}}</h5>
+            <p class="card-text">
+              This movie is called {{movie.title |uppercase}} and it was released in
+              {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made
+            </p>
+          </div>
+          <div class="card-footer text-body-secondary">
+            <button class="btn btn-danger d-flex m-auto" (click)="removeMovie(movie)"><mat-icon aria-hidden="false" aria-label="Remove movie?" fontIcon="delete"></mat-icon>Remove </button>
+          </div>
+        </div>
       </div>
+      <br />
     </div>
   </div>
 </section>

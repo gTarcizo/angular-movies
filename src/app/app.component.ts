@@ -18,7 +18,7 @@ export class AppComponent {
       this.upcomingMovies = [
         {
           title:'Venom',
-          launchDate: new Date().toLocaleDateString(),
+          launchDate: new Date(),
           price: 123.4,
           poster : 'https://m.media-amazon.com/images/I/813EeINX9RL._AC_UF894,1000_QL80_DpWeblab_.jpg'
         }
@@ -33,7 +33,7 @@ export class AppComponent {
         },
         {
           title:'Spider Man 1',
-          launchDate: new Date().toLocaleDateString(),
+          launchDate: new Date(),
           price: 1223.4,
           poster : 'https://upload.wikimedia.org/wikipedia/pt/1/14/Spide-Man_Poster.jpg'
         }
@@ -41,23 +41,4 @@ export class AppComponent {
 
     }, 500);
   }
-  
-  
-  // addMovie(){
-  //   //const titleElement = document.getElementById("title") as HTMLInputElement;
-  //   //const launchDateElement = document.getElementById("launchDate") as HTMLInputElement;
-  //   //const priceElement = document.getElementById("price") as HTMLInputElement;
-  //   //const posterElement = document.getElementById("poster") as HTMLInputElement;
-  //   //const tipe = document.getElementById("poster") as HTMLInputElement;
-
-  //   var movie:any ={
-  //         title:'Test',
-  //         launchDate: new Date('22-06-2000').toLocaleDateString(),
-  //         price: .4,
-  //         poster : 'https://upload.wikimedia.org/wikipedia/pt/d/d1/The_Dark_Knight.jpg'
-  //       };
-
-  //   this.movies?.push(movie)
-  // }
-
 }
