@@ -1,0 +1,19 @@
+<div *ngIf="!elements">
+  <div class="text-center"><img src="assets/loadingProcess.gif"></div>
+</div>
+
+<div *ngIf="elements?.length === 0">
+  <span #customMessage><ng-content select="[customMessage]"></ng-content></span>
+
+  @if(!customMessage.innerHTML.trim()){
+    There's no element to display!
+  }
+  <hr class="m-auto w-50" />
+  <br />
+</div>
+<br />
+
+<div *ngIf="elements && elements.length > 0">
+  <br />
+  <ng-content select="[content]"></ng-content>
+</div>

@@ -16,47 +16,44 @@
 
 </div>
 } -->
-
-<input type="button" value="This is a test just to learn the template reference variable" #addingMovie class="d-none" (click)="addMovie()"  />
   <div class="text-center">
-    <button class="btn btn-primary" (click)="addingMovie.click()">Add Movie</button>
+    <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
   </div>
-  <div *ngIf="!movies">
-    <div class="text-center"><img src="assets/loadingProcess.gif"></div>
-  </div>
-
-  <div *ngIf="movies?.length === 0">
-    <div class="text-center"><img src="assets/theresNothingHere.gif" width="240" height="250"></div>
-    <hr class="m-auto w-50" />
-    <br />
-  </div>
-  <br />
-  <div *ngIf="movies && movies.length > 0">
-    <br />
-    <div *ngFor="let movie of movies; let $index = index">
-      <div>
-        <div class="card m-auto rounded-4 shadow-sm" style="width: 18rem;">
-          @if (movie.poster) {
-          <img [ngSrc]="movie.poster" class="card-img-top m-1 p-3 rounded-5" width="150" height="350"
-            [priority]="$index === 0" />
-          }@else {
-          <img src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg" class="card-img-top m-1 p-3 rounded-5"
-            width="150" height="350" />
-          }
-          <div class="card-body">
-            <h5 class="card-title">{{movie.title |uppercase}}</h5>
-            <p class="card-text">
-              This movie is called {{movie.title |uppercase}} and it was released in
-              {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made
-            </p>
+  <app-generic-list [elements]="movies" >
+    <ng-container customMessage>
+      <div class="text-center"><img src="assets/theresNothingHere.gif" width="240" height="250"></div>
+    </ng-container>
+    <ng-container content>
+      <div *ngIf="movies && movies.length > 0">
+        <br />
+        <div *ngFor="let movie of movies; let $index = index">
+          <div>
+            <div class="card m-auto rounded-4 shadow-sm" style="width: 18rem;">
+              @if (movie.poster) {
+              <img [ngSrc]="movie.poster" class="card-img-top m-1 p-3 rounded-5" width="150" height="350"
+                [priority]="$index === 0" />
+              }@else {
+              <img src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg"
+                class="card-img-top m-1 p-3 rounded-5" width="150" height="350" />
+              }
+              <div class="card-body">
+                <h5 class="card-title">{{movie.title |uppercase}}</h5>
+                <p class="card-text">
+                  This movie is called {{movie.title |uppercase}} and it was released in
+                  {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made
+                </p>
+              </div>
+              <div class="card-footer text-body-secondary">
+                <button class="btn btn-danger d-flex m-auto" (click)="removeMovie(movie)"><mat-icon aria-hidden="false"
+                    aria-label="Remove movie?" fontIcon="delete"></mat-icon>Remove </button>
+              </div>
+            </div>
           </div>
-          <div class="card-footer text-body-secondary">
-            <button class="btn btn-danger d-flex m-auto" (click)="removeMovie(movie)"><mat-icon aria-hidden="false"
-                aria-label="Remove movie?" fontIcon="delete"></mat-icon>Remove </button>
-          </div>
+          <br />
         </div>
       </div>
-      <br />
-    </div>
-  </div>
+    </ng-container>
+  </app-generic-list>
+  <br />
+
 </section>

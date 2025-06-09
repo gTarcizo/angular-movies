@@ -16,12 +16,12 @@ export class AppComponent {
   constructor(){
     setTimeout(() => {
       this.upcomingMovies = [
-        {
-          title:'Venom',
-          launchDate: new Date(),
-          price: 123.4,
-          poster : 'https://m.media-amazon.com/images/I/813EeINX9RL._AC_UF894,1000_QL80_DpWeblab_.jpg'
-        }
+        // {
+        //   title:'Venom',
+        //   launchDate: new Date(),
+        //   price: 123.4,
+        //   poster : 'https://m.media-amazon.com/images/I/813EeINX9RL._AC_UF894,1000_QL80_DpWeblab_.jpg'
+        // }
       ];
 
       this.inTheatersMovies = [
