@@ -17,9 +17,9 @@
 </div>
 } -->
   <div class="text-center">
-    <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
+    <button mat-flat-button (click)="addMovie()">Add Movie</button>
   </div>
-  <app-generic-list [elements]="movies" >
+  <app-generic-list [elements]="movies">
     <ng-container customMessage>
       <div class="text-center"><img src="assets/theresNothingHere.gif" width="240" height="250"></div>
     </ng-container>
@@ -28,7 +28,7 @@
         <br />
         <div *ngFor="let movie of movies; let $index = index">
           <div>
-            <div class="card m-auto rounded-4 shadow-sm" style="width: 18rem;">
+            <!-- <div class="card m-auto rounded-4 shadow-sm" style="width: 18rem;">
               @if (movie.poster) {
               <img [ngSrc]="movie.poster" class="card-img-top m-1 p-3 rounded-5" width="150" height="350"
                 [priority]="$index === 0" />
@@ -43,11 +43,47 @@
                   {{movie.launchDate | date:"MMMM,dd,yyyy"}} and it costs about {{movie.price | currency}} to be made
                 </p>
               </div>
-              <div class="card-footer text-body-secondary">
-                <button class="btn btn-danger d-flex m-auto" (click)="removeMovie(movie)"><mat-icon aria-hidden="false"
-                    aria-label="Remove movie?" fontIcon="delete"></mat-icon>Remove </button>
+              <div class="card-footer text-body-secondary m-auto p-3">
+                <div class="example-button-container">
+                  <button mat-fab extended (click)="removeMovie(movie)">
+                    <mat-icon>delete</mat-icon>
+                    Remove
+                  </button>
+                </div>
               </div>
             </div>
+           -->
+            <mat-card class="m-auto p-4 rounded-xl w-50">
+              <mat-card-header class="d-flex justify-content-center">
+                <mat-card-title><div class="display-6">{{ movie.title | uppercase }}</div></mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <ng-container *ngIf="movie.poster; else defaultImage">
+                  <img [ngSrc]="movie.poster" width="130" height="450" class="card-img-top m-1 p-3 rounded-5"
+                    [priority]="$index === 0" />
+                </ng-container>
+                <ng-template #defaultImage>
+                  <img src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg" width="150" height="350"
+                    class="card-img-top m-1 p-3 rounded-5" />
+                </ng-template>
+
+                <p class="mt-4 text-sm">
+                  This movie is called <strong>{{ movie.title | uppercase }}</strong> and it was released in
+                  {{ movie.launchDate | date: 'MMMM, dd, yyyy' }} and it costs about {{ movie.price | currency }} to be
+                  made.
+                </p>
+              </mat-card-content>
+              <br/>
+              <mat-card-actions>
+                <div class="example-button-container m-auto">
+                  <button mat-fab extended color="warn" (click)="removeMovie(movie)">
+                    <mat-icon>delete</mat-icon>
+                    Remove
+                  </button>
+                </div>
+              </mat-card-actions>
+            </mat-card>
+
           </div>
           <br />
         </div>

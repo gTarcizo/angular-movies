@@ -1,11 +1,14 @@
 import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { GenericListComponent } from "../../shared/components/generic-list/generic-list.component";
+import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
   selector: 'app-movies-list',
-  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage, NgIf, MatIconModule, GenericListComponent],
+  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage, NgIf, MatIconModule, MatButtonModule, GenericListComponent, MatCardModule],
   templateUrl: './movies-list.component.html',
   styleUrl: './movies-list.component.css'
 })
